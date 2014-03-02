@@ -10,6 +10,7 @@ Steering Behavior
   *  Chase 
   *  Seek
   *  SeekForce (Seeking adding force)
-  *  flee
-  *  fleeForce (Flee adding force)
-  *  pursuit
+  *  Flee
+  *  FleeForce (Flee adding force)
+  *  Pursuit
+  *  Evade
