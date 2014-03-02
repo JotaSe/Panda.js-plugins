@@ -84,12 +84,14 @@ game.module(
                 Predator.position.multiply(-1);
             },
             pursuit: function (Predator, Prey, maxVelocity, distance) {
-                Prey.add(Prey.velocity).multiply(distance);
-                this.seek(Predator, Prey, maxVelocity);
+                var temp = Prey;
+                temp.position.add(temp.velocity).multiply(distance);
+                this.seek(Predator, temp, maxVelocity);
             },
             evade: function (Predator, Prey, maxVelocity, distance) {
-                Prey.add(Prey.velocity).multiply(distance);
-                this.flee(Predator, Prey, maxVelocity);
+                var temp = Prey;
+                temp.position.add(temp.velocity).multiply(distance);
+                this.flee(Predator, temp, maxVelocity);
             },
             truncate: function (vector, max) {
                 if (vector.length() > max) {
