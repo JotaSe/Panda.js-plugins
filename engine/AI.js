@@ -83,20 +83,13 @@ game.module(
                 Predator.velocity.multiply(-1);
                 Predator.position.multiply(-1);
             },
-            pursuit: function (Predator, Prey, maxVelocity,distance) {
-                var temp = Prey.position.clone();
-                /*//temp.add(Prey.velocity).multiply(3);
-
-                var distance = temp.subtract(Predator.position);
-
-                var T = distance.length()/-100;
-                temp = Prey.position.clone();
-                console.log(T+" asdasd");*/
-                temp.add(Prey.velocity).multiply(distance);
-                temp.subtract(Predator.position);
-                temp.normalize();
-                temp.multiply(maxVelocity);
-                Predator.velocity = temp;
+            pursuit: function (Predator, Prey, maxVelocity, distance) {
+                Prey.add(Prey.velocity).multiply(distance);
+                this.seek(Predator, Prey, maxVelocity);
+            },
+            evade: function (Predator, Prey, maxVelocity, distance) {
+                Prey.add(Prey.velocity).multiply(distance);
+                this.flee(Predator, Prey, maxVelocity);
             },
             truncate: function (vector, max) {
                 if (vector.length() > max) {
