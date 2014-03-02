@@ -83,15 +83,17 @@ game.module(
                 Predator.velocity.multiply(-1);
                 Predator.position.multiply(-1);
             },
-            pursuit: function (Predator, Prey, maxVelocity) {
+            pursuit: function (Predator, Prey, maxVelocity,distance) {
                 var temp = Prey.position.clone();
-                //temp.add(Prey.velocity).multiply(3);
+                /*//temp.add(Prey.velocity).multiply(3);
 
                 var distance = temp.subtract(Predator.position);
 
-                var T = distance.length()/maxVelocity;
+                var T = distance.length()/-100;
                 temp = Prey.position.clone();
-                temp.add(Prey.velocity).multiply(T);
+                console.log(T+" asdasd");*/
+                temp.add(Prey.velocity).multiply(distance);
+                temp.subtract(Predator.position);
                 temp.normalize();
                 temp.multiply(maxVelocity);
                 Predator.velocity = temp;
